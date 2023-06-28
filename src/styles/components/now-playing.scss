@@ -8,14 +8,13 @@
   background-color: var(--colour-background-now-playing);
   color: var(--color-text-primary);
   display: flex;
-  flex-flow: column nowrap;
   height: 100%;
-  padding: var(--spacing-l);
+  padding: 5%;
   width: 100%;
 
   &__cover,
   &__details {
-    padding: var(--spacing-m);
+    padding: 0px 15px 0px 15px;
     text-align: center;
     width: 100%;
   }
@@ -37,10 +36,20 @@
 
   &__track {
     font-weight: var(--font-weight-heading);
+    display:-webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__artists {
     opacity: 0.8;
+    display:-webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &--active {
@@ -54,14 +63,20 @@
     justify-content: center;
   }
 
-  @media only screen and (min-width: 767px) {
+  @media only screen and (orientation:portrait) {
+  /* Style adjustments for portrait mode goes here */
+     flex-flow: column;
+     padding: 5%
+  }
+  
+  @media only screen and (orientation:landscape) {
     flex-flow: row nowrap;
-    padding: 10%;
+    padding: 5%;
 
     &__cover,
     &__details {
       width: 50%;
-      max-width: 495px;
+      max-width: 600px;
     }
 
     &__details {
